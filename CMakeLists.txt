@@ -9,8 +9,13 @@ find_package(glfw3 REQUIRED)
 add_executable(hello_window 
     src/main.cpp 
     src/glad.c
+    src/triangle_mesh.cpp
 )
 
 target_include_directories(hello_window PRIVATE dependencies)
 
 target_link_libraries(hello_window PRIVATE ${GLFW3_LIBRARY} OpenGL::GL)
+
+target_compile_definitions(hello_window PRIVATE
+    PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
+)
