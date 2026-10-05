@@ -5,9 +5,6 @@ cmake_policy(SET CMP0072 NEW)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 find_package(OpenGL REQUIRED)
 
-set(glm_DIR "C:/msys64/ucrt64/share/glm")
-
-find_package(glm CONFIG REQUIRED)
 find_package(glfw3 REQUIRED)
 
 add_executable(hello_window 
@@ -15,14 +12,12 @@ add_executable(hello_window
     src/glad.c
     src/triangle_mesh.cpp
     src/config.cpp
-    src/material.cpp
-    src/linear_algebros.cpp 
+    src/material.cpp 
 )
 
 target_include_directories(hello_window PRIVATE dependencies)
 
 target_link_libraries(hello_window PRIVATE ${GLFW3_LIBRARY} OpenGL::GL)
-target_link_libraries(hello_window PRIVATE glm::glm-header-only)
 
 target_compile_definitions(hello_window PRIVATE
     PROJECT_SOURCE_DIR="${CMAKE_SOURCE_DIR}"
