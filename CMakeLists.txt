@@ -12,7 +12,9 @@ add_executable(hello_window
     src/glad.c
     src/triangle_mesh.cpp
     src/config.cpp
-    src/material.cpp 
+    src/material.cpp
+    src/cube.cpp
+    src/camera.cpp 
 )
 
 target_include_directories(hello_window PRIVATE dependencies)
